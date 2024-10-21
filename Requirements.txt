@@ -1,0 +1,12 @@
+streamlit
+pandas
+numpy
+spacy
+scikit-learn
+plotly
+transformers
+torch
+matplotlib
+wordcloud
+langdetect
+googletrans==4.0.0rc1
