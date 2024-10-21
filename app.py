@@ -30,12 +30,7 @@ logging.basicConfig(filename='app.log', level=logging.INFO)
 @st.cache_resource
 def load_spacy_model():
     import spacy
-    from spacy.cli import download
-    try:
-        nlp = spacy.load('en_core_web_sm')
-    except:
-        download('en_core_web_sm')
-        nlp = spacy.load('en_core_web_sm')
+    nlp = spacy.load('en_core_web_sm')
     return nlp
 
 nlp = load_spacy_model()
