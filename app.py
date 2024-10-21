@@ -30,10 +30,17 @@ logging.basicConfig(filename='app.log', level=logging.INFO)
 @st.cache_resource
 def load_spacy_model():
     import spacy
-    nlp = spacy.load('en_core_web_sm')
+    from spacy.cli import download
+    try:
+        nlp = spacy.load('en_core_web_sm')
+    except OSError:
+        # Model not found, download it
+        download('en_core_web_sm')
+        nlp = spacy.load('en_core_web_sm')
     return nlp
 
 nlp = load_spacy_model()
+
 
 # Load BERT model and tokenizer
 @st.cache_resource
